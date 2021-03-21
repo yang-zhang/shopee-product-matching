@@ -53,6 +53,6 @@ def mk_feats(df, nm_mdl):
 def mk_sims(df, nm_mdl=None):
     if nm_mdl is None:
         nm_mdl = "pvl/labse_bert"
-    feats = mk_feats(df)
+    feats = mk_feats(df, nm_mdl)
     sims = cosine_similarity(feats)
     return sims

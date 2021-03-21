@@ -46,11 +46,9 @@ def mk_dl(df, p_imgs):
     return dl
 
 
-def mk_feats(df, p_imgs, mdl=None):
+def mk_feats(df, p_imgs, mdl):
     dl = mk_dl(df, p_imgs)
     device = torch.device(DEVICE)
-    if mdl is None:
-        mdl = EfficientNet.from_pretrained("efficientnet-b0")
     mdl = mdl.to(device)
     mdl.eval()
     feats = np.zeros((len(df), 1280))
@@ -64,7 +62,9 @@ def mk_feats(df, p_imgs, mdl=None):
     return feats
 
 
-def mk_sims(df, p_imgs):
-    feats = mk_feats(df, p_imgs)
+def mk_sims(df, p_imgs, mdl=None):
+    if mdl is None:
+        mdl = EfficientNet.from_pretrained("efficientnet-b0")
+    feats = mk_feats(df, p_imgs, mdl)
     sims = cosine_similarity(feats)
     return sims
