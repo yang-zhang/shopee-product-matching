@@ -2,6 +2,7 @@ from utils import *
 from transformers import AutoModel, AutoTokenizer
 
 MAXLEN = 128
+BS = 256
 
 
 def mk_tensors(txt, tokenizer, maxlen):

@@ -4,6 +4,8 @@ from efficientnet_pytorch import EfficientNet
 from PIL import Image
 from torchvision import transforms
 
+BS = 256
+
 
 class VDataset(Dataset):
     def __init__(self, df, p_imgs, transforms):
