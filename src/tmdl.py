@@ -29,9 +29,8 @@ def mk_dl(tensors):
     return dl
 
 
-def mk_feats(df):
+def mk_feats(df, nm_mdl):
     device = torch.device(DEVICE)
-    nm_mdl = "pvl/labse_bert"
     tokenizer = AutoTokenizer.from_pretrained(nm_mdl, do_lower_case=False)
     tensors = mk_tensors(list(df.title.values), tokenizer, maxlen=MAXLEN)
     dl = mk_dl(tensors)
@@ -51,7 +50,9 @@ def mk_feats(df):
     return feats
 
 
-def mk_sims(df):
+def mk_sims(df, nm_mdl=None):
+    if nm_mdl is None:
+        nm_mdl = "pvl/labse_bert"
     feats = mk_feats(df)
     sims = cosine_similarity(feats)
     return sims

@@ -46,16 +46,18 @@ def mk_dl(df, p_imgs):
     return dl
 
 
-def mk_feats(df, p_imgs):
+def mk_feats(df, p_imgs, mdl=None):
     dl = mk_dl(df, p_imgs)
     device = torch.device(DEVICE)
-    mdlv = EfficientNet.from_pretrained("efficientnet-b0").to(device)
-    mdlv.eval()
+    if mdl is None:
+        mdl = EfficientNet.from_pretrained("efficientnet-b0")
+    mdl = mdl.to(device)
+    mdl.eval()
     feats = np.zeros((len(df), 1280))
     i = 0
     for dat in dl:
         with torch.no_grad():
-            fts = mdlv.extract_features(dat.to(device)).mean(dim=(-1, -2))
+            fts = mdl.extract_features(dat.to(device)).mean(dim=(-1, -2))
         l = len(fts)
         feats[i : i + l, :] = fts.cpu().detach().numpy()
         i += l
