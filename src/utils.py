@@ -35,10 +35,14 @@ def mk_hsims(df):
     return hsims
 
 
-def get_preds_by_thrsh(sims, thrsh, pids):
+def get_preds_by_thrsh(sims, thrsh):
     isclose = sims >= thrsh
-    preds_idx = (np.where(x)[0] for x in isclose)
-    return [pids[o] for o in preds_idx]
+    preds = (np.where(x)[0] for x in isclose)
+    return preds
+
+
+def preds2pids(preds, pids):
+    return [pids[o] for o in preds]
 
 
 # git/shopee-product-matching/working/dev0015--threshold--combine.ipynb
