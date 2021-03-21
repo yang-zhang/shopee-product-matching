@@ -1,7 +1,6 @@
 from utils import *
 from transformers import AutoModel, AutoTokenizer
 
-BS = 256
 MAXLEN = 128
 
 
