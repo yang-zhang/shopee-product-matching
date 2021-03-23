@@ -11,7 +11,6 @@ import neighbor
 
 NWKRS = 8
 DEVICE = torch.device("cuda" if torch.cuda.is_available() else "cpu")
-DEVICE = torch.device("cpu")
 PIN_MEMORY = True if DEVICE == torch.device("cuda") else False
 
 
