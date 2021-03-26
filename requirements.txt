@@ -6,3 +6,8 @@ scikit-learn
 torchvision
 black
 matplotlib
+albumentations
+opencv_python
+resnest
+geffnet
+
