@@ -8,18 +8,16 @@ from torch.utils.data import Dataset
 
 
 class ShopeeDataset(Dataset):
-    def __init__(self, csv, split, mode, transform=None):
-
-        self.csv = csv.reset_index()
-        self.split = split
+    def __init__(self, df, mode="train", transform=None):
+        self.df = df.reset_index()
         self.mode = mode
         self.transform = transform
 
     def __len__(self):
-        return self.csv.shape[0]
+        return self.df.shape[0]
 
     def __getitem__(self, index):
-        row = self.csv.iloc[index]
+        row = self.df.iloc[index]
 
         image = cv2.imread(row.filepath)[:, :, ::-1]
 

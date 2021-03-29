@@ -1,6 +1,7 @@
 torch
 transformers
 pytorch-lightning
+torchmetrics
 efficientnet-pytorch
 scikit-learn
 torchvision
