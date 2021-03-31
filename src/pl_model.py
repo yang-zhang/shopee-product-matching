@@ -56,6 +56,7 @@ class ShpDataModule(pl.LightningDataModule):
             batch_size=self.train_batch_size,
             num_workers=self.dataloader_num_workers,
             pin_memory=self.pin_memory,
+            shuffle=True,
         )
 
     def val_dataloader(self):
