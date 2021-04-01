@@ -11,4 +11,4 @@ albumentations
 opencv_python
 resnest
 geffnet
-
+pre-commit
