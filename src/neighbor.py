@@ -6,7 +6,7 @@ CHUNK = 1024 * 4
 
 
 def mk_nnmdl(feats, n_nbrs=N_NBRS):
-    nnmdl = NearestNeighbors(N_NBRS)
+    nnmdl = NearestNeighbors(N_NBRS, metric="cosine")
     nnmdl.fit(feats)
     return nnmdl
 
