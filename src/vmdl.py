@@ -49,6 +49,8 @@ def mk_dl(df, p_imgs):
 def mk_feats(df, p_imgs, mdl=None):
     if mdl is None:
         mdl = EfficientNet.from_pretrained("efficientnet-b0")
+    else:
+        mdl = EfficientNet.from_pretrained(mdl)
     dl = mk_dl(df, p_imgs)
     device = torch.device(DEVICE)
     mdl = mdl.to(device)
