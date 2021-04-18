@@ -150,7 +150,7 @@ pytorch-lightning==1.2.6
 pytz @ file:///home/conda/feedstock_root/build_artifacts/pytz_1612179539967/work
 pyviz-comms @ file:///home/conda/feedstock_root/build_artifacts/pyviz_comms_1609149992420/work
 PyWavelets==1.1.1
-PyYAML==5.3.1
+PyYAML>=5.4
 pyzmq @ file:///home/conda/feedstock_root/build_artifacts/pyzmq_1614611717789/work
 regex==2021.3.17
 requests @ file:///home/conda/feedstock_root/build_artifacts/requests_1608156231189/work
